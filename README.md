@@ -18,6 +18,7 @@ This repository contains the source code for my professional portfolio. It is no
 - **Cinematic Rendering:** Engineered with responsive video backgrounds for desktop pipelines while serving optimized static image fallbacks for mobile, ensuring 60FPS scrolling and zero-latency rendering.
 - **Fluid Micro-Interactions:** Integrated with `motion` (Framer) to power high-fidelity scroll animations, staggering reveals, and spring-physics component interactions.
 - **Progressive Web Readiness:** Features a custom premium vector SVG graphics setup, fully scalable PNGs, and integrated `site.webmanifest` for cross-platform (Android/iOS) native alignment.
+- **Serverless Form Architecture:** Seamlessly integrated **EmailJS** to handle direct real-time inquiries straight from the UI to email without requiring a dedicated backend server, including dual-layer fallback systems.
 - **Premium Dark-Theme Aesthetics:** Meticulously crafted color contrast algorithms and Tailwind layout breakpoints preserving structural integrity.
 
 ## 🛠️ Technology Stack
@@ -26,6 +27,7 @@ This repository contains the source code for my professional portfolio. It is no
 - **Styling Engine:** Tailwind CSS v4
 - **Animations:** Motion (Framer), GSAP logic principles
 - **Icons & Graphics:** Lucide React
+- **Communications API:** EmailJS (Serverless Mail Integration)
 - **Deployment:** Vercel (Continuous Integration)
 
 ## 💻 Local Development
