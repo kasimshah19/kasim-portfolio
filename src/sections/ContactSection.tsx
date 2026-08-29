@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Copy, Check, FileText, Download, Send, MessageSquare, Linkedin, Github, Phone, Mail, MapPin } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
+import emailjs from '@emailjs/browser';
+
 export default function ContactSection() {
   const [copied, setCopied] = useState(false);
   const [formState, setFormState] = useState({
@@ -10,7 +12,7 @@ export default function ContactSection() {
     subject: '',
     message: '',
   });
-  const [formStatus, setFormStatus] = useState<'idle' | 'success'>('idle');
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
@@ -22,15 +24,32 @@ export default function ContactSection() {
     e.preventDefault();
     if (!formState.email || !formState.message) return;
 
-    // Graceful fallback to mailto
-    const mailtoSubject = encodeURIComponent(formState.subject || `Inquiry from ${formState.name}`);
-    const mailtoBody = encodeURIComponent(
-      `Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`
-    );
-    window.location.href = `mailto:${PERSONAL_INFO.email}?subject=${mailtoSubject}&body=${mailtoBody}`;
+    setFormStatus('sending');
 
-    setFormStatus('success');
-    setTimeout(() => setFormStatus('idle'), 4000);
+    emailjs.send(
+      'service_97p1urp', 
+      'template_4b0uy2a', 
+      {
+        name: formState.name,
+        email: formState.email,
+        subject: formState.subject,
+        message: formState.message
+      }, 
+      'Ax-LJlB6PUfFjHKe7'
+    )
+    .then((result) => {
+        setFormStatus('success');
+        setFormState({ name: '', email: '', subject: '', message: '' }); // Clear form
+        setTimeout(() => setFormStatus('idle'), 5000);
+    }, (error) => {
+        console.error('EmailJS Error:', error);
+        setFormStatus('error');
+        setTimeout(() => setFormStatus('idle'), 4000);
+        // Fallback to mailto if API fails
+        const mailtoSubject = encodeURIComponent(formState.subject || `Inquiry from ${formState.name}`);
+        const mailtoBody = encodeURIComponent(`Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`);
+        window.location.href = `mailto:${PERSONAL_INFO.email}?subject=${mailtoSubject}&body=${mailtoBody}`;
+    });
   };
 
   return (
@@ -264,10 +283,16 @@ export default function ContactSection() {
             <button
               id="send-message-submit-btn"
               type="submit"
-              className="w-full py-3 rounded-lg bg-[#141413] dark:bg-[#FAFAFA] text-[#FAF7F2] dark:text-[#121212] hover:bg-[#2C2B29] dark:hover:bg-[#D4D4D8] text-xs font-mono font-bold tracking-wider uppercase flex items-center justify-center gap-2 transition-colors"
+              disabled={formStatus === 'sending' || formStatus === 'success'}
+              className="w-full py-3 rounded-lg bg-[#141413] dark:bg-[#FAFAFA] text-[#FAF7F2] dark:text-[#121212] hover:bg-[#2C2B29] dark:hover:bg-[#D4D4D8] disabled:opacity-70 text-xs font-mono font-bold tracking-wider uppercase flex items-center justify-center gap-2 transition-all"
             >
               <Send className="w-3.5 h-3.5 text-[#D94E28] dark:text-[#FF5A2A]" />
-              <span>{formStatus === 'success' ? 'Opening Mail Client...' : 'Send Message'}</span>
+              <span>
+                {formStatus === 'sending' && 'Sending Message...'}
+                {formStatus === 'success' && 'Message Sent Successfully!'}
+                {formStatus === 'error' && 'Failed. Opening Mail Client...'}
+                {formStatus === 'idle' && 'Send Message'}
+              </span>
             </button>
           </form>
         </div>
