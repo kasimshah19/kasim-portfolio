@@ -63,8 +63,7 @@ export default function PublicationsSection() {
                       
                       <a
                         href={pub.acceptanceLetterUrl || '#'}
-                        target={pub.acceptanceLetterUrl && pub.acceptanceLetterUrl !== '#' ? "_blank" : "_self"}
-                        rel="noopener noreferrer"
+                        download="Acceptance-Letter.pdf"
                         className="flex items-center justify-between p-2.5 rounded-md hover:bg-[#EAE5DA] dark:hover:bg-[#1E1E1E] transition-colors group"
                       >
                         <div className="flex items-center gap-2.5 text-xs font-mono text-[#141413] dark:text-[#FAFAFA]">
@@ -76,8 +75,7 @@ export default function PublicationsSection() {
                       
                       <a
                         href={pub.certificateUrl || '#'}
-                        target={pub.certificateUrl && pub.certificateUrl !== '#' ? "_blank" : "_self"}
-                        rel="noopener noreferrer"
+                        download="Certificate.pdf"
                         className="flex items-center justify-between p-2.5 rounded-md hover:bg-[#EAE5DA] dark:hover:bg-[#1E1E1E] transition-colors group"
                       >
                         <div className="flex items-center gap-2.5 text-xs font-mono text-[#141413] dark:text-[#FAFAFA]">
@@ -89,8 +87,7 @@ export default function PublicationsSection() {
 
                       <a
                         href={pub.paperPdfUrl || '#'}
-                        target={pub.paperPdfUrl && pub.paperPdfUrl !== '#' ? "_blank" : "_self"}
-                        rel="noopener noreferrer"
+                        download="Research-Paper.pdf"
                         className="flex items-center justify-between p-2.5 rounded-md hover:bg-[#EAE5DA] dark:hover:bg-[#1E1E1E] transition-colors group"
                       >
                         <div className="flex items-center gap-2.5 text-xs font-mono text-[#141413] dark:text-[#FAFAFA]">

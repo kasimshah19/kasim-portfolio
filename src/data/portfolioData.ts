@@ -431,9 +431,9 @@ export const RESEARCH_PUBLICATIONS: ResearchPublicationItem[] = [
     paperType: 'Peer-Reviewed Research Paper',
     status: 'Published',
     doiOrLink: 'https://jatir.org/article.php?paperid=140305',
-    acceptanceLetterUrl: '#',
-    certificateUrl: '#',
-    paperPdfUrl: '#',
+    acceptanceLetterUrl: '/acceptance.pdf',
+    certificateUrl: '/certificate.pdf',
+    paperPdfUrl: '/paper.pdf',
     abstract: 'Today, smartphones, social media, and artificial intelligence are not just tools — they are a core part of how young people live, learn, socialise, and see themselves. For the 15–26 age group, being online is as natural as breathing. But this constant digital immersion comes at a cost that we are only beginning to understand: a quiet, creeping crisis in mental health. This research paper investigates how technology use affects the psychological well-being of young adults in India, with a focus on undergraduate students. Using a mixed-methods design (a structured survey + extensive review of academic literature), the study examines six mental health dimensions: anxiety, sleep disruption, concentration difficulty, social comparison, loneliness, and AI-induced career anxiety.',
     keywords: ['Mental Health', 'Social Media', 'AI Anxiety', 'FOMO', 'Screen Time', 'Digital Addiction', 'Technostress', 'Digital Well-being'],
     keyHighlights: [
