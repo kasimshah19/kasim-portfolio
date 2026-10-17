@@ -145,31 +145,34 @@ export const PROJECTS: ProjectItem[] = [
 
 export const EXPERIENCES: ExperienceItem[] = [
   {
-    id: 'codsoft-internship',
-    rolePrefix: 'Web Development Intern at ',
-    companyName: 'CodSoft Internships',
-    companyLink: 'https://codsoft.in/',
-    title: 'Web Development Intern',
-    organization: 'CodSoft Internships',
-    period: 'AUG 2026 – PRESENT',
-    summary: 'Selected as a Web Development Intern for a virtual internship program focused on modern frontend applications, state management, clean responsive styling, and industry-standard Git collaboration workflows.',
+    id: 'sysslan-internship',
+    rolePrefix: 'MERN Stack Development Intern at ',
+    companyName: 'Sysslan IT Solutions',
+    companyLink: 'https://www.sysslan.com/',
+    title: 'MERN Stack Development Intern',
+    organization: 'Sysslan IT Solutions',
+    period: 'AUG 2026 – SEP 2026',
+    summary:
+      'Completed a MERN Stack Development Internship at Sysslan IT Solutions, building full-stack web applications, conducting technical research, and implementing scalable frontend and backend features.',
     modules: [
       {
         number: '01',
-        title: 'Full-Stack Web Architecture',
-        tags: ['React.js', 'Tailwind CSS', 'JavaScript'],
+        title: 'MERN Web Application Development',
+        subtitle: 'FULL STACK',
+        tags: ['React', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs'],
         bullets: [
-          'Architected scalable web applications, implementing complex state management and seamless client-side routing.',
-          'Integrated secure RESTful APIs and optimized data-fetching strategies to enhance rendering performance.',
+          'Collaborated on client and product web applications using MongoDB, Express.js, React, and Node.js.',
+          'Built reusable, responsive UI components and integrated backend RESTful APIs with clean error handling.',
         ],
       },
       {
         number: '02',
-        title: 'Scalable Frontend Engineering',
-        tags: ['JavaScript', 'HTML5 / CSS3', 'Git & GitHub'],
+        title: 'Strategy & Technical Implementation',
+        subtitle: 'ARCHITECTURE',
+        tags: ['Git', 'System Design', 'Documentation', 'Postman'],
         bullets: [
-          'Engineered pixel-perfect, responsive user interfaces ensuring strict cross-browser compatibility and WCAG compliance.',
-          'Collaborated via agile methodologies, enforcing code quality through PR reviews and modular component design.',
+          'Conducted research and prepared comprehensive technical documentation for system architecture and API contracts.',
+          'Contributed to development strategy, code quality standards, and continuous integration workflows.',
         ],
       },
     ],

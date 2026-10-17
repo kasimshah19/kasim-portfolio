@@ -17,7 +17,7 @@ export default function ExperienceSection() {
           </h2>
         </div>
         <span className="text-xs font-mono uppercase tracking-widest text-[#6E6A61] dark:text-[#A1A1AA] font-semibold">
-          AUG 2026 – PRESENT &nbsp;•&nbsp; 2 ROLES
+          {EXPERIENCES[0]?.period || 'AUG 2026 – SEP 2026'} &nbsp;•&nbsp; {EXPERIENCES.length} ROLES
         </span>
       </div>
 
@@ -68,13 +68,18 @@ export default function ExperienceSection() {
                   className="py-3 sm:py-4 space-y-3.5"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <span className="text-xs font-mono text-[#D94E28] dark:text-[#FF5A2A] font-bold">
                         {mod.number}
                       </span>
                       <span className="text-xs sm:text-sm font-mono font-bold tracking-wide text-[#141413] dark:text-[#FAFAFA]">
                         {mod.title}
                       </span>
+                      {mod.subtitle && (
+                        <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-[#6E6A61] dark:text-[#A1A1AA] font-semibold">
+                          {mod.subtitle}
+                        </span>
+                      )}
                     </div>
 
                     {/* Tech Badges */}

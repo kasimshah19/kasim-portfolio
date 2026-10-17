@@ -29,6 +29,7 @@ export interface ProjectItem {
 export interface ExperienceModule {
   number: string;
   title: string;
+  subtitle?: string;
   tags: string[];
   bullets: string[];
 }
