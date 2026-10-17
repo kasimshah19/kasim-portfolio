@@ -72,20 +72,22 @@ export default function ProjectModal({ project, onClose, onNext, onPrev, hasNext
           {/* Scrollable Content Area */}
           <div ref={modalRef} className="flex-1 overflow-y-auto w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             
-            {/* Top Cover / Video Player Area - Full Screen Edge-to-Edge */}
+            {/* Top Cover / Video Player Area - Adjusted Theater Container */}
             {project.videoUrl ? (
-              <div className="w-full relative bg-black overflow-hidden border-b border-[#DCD6C8] dark:border-[#333333]">
-                <video
-                  src={project.videoUrl}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  className="w-full aspect-[16/9] object-cover object-top bg-black block"
-                >
-                  Your browser does not support the video tag.
-                </video>
-                <div className="absolute top-4 left-4 z-20 pointer-events-none">
-                  <span className="px-3 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-white font-mono text-[10px] sm:text-xs uppercase tracking-widest flex items-center gap-2 shadow-lg">
+              <div className="w-full relative bg-[#0C0B0A] py-4 px-3 sm:py-6 sm:px-6 flex items-center justify-center border-b border-[#DCD6C8] dark:border-[#333333]">
+                <div className="w-full max-w-5xl relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl bg-black border border-white/10">
+                  <video
+                    src={project.videoUrl}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-auto max-h-[68vh] object-contain mx-auto block"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div className="absolute top-5 sm:top-7 left-5 sm:left-7 z-20 pointer-events-none">
+                  <span className="px-3 py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-white/20 text-white font-mono text-[10px] sm:text-xs uppercase tracking-widest flex items-center gap-2 shadow-lg">
                     <span className="w-2 h-2 rounded-full bg-[#D94E28] dark:bg-[#FF5A2A] animate-pulse" />
                     Live Project Walkthrough
                   </span>
