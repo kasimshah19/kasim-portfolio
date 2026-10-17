@@ -14,8 +14,8 @@ export default function HeroSection({ onNavigate, isReady = true }: HeroSectionP
       id="home"
       className="relative min-h-screen flex flex-col justify-between border-b border-[#E2DDD2] dark:border-[#27272A] bg-[#F4F0E8] dark:bg-[#0A0A0A] overflow-hidden"
     >
-      {/* Top Hero Banner Area with Full Screen Visual Background */}
-      <div className="relative flex-1 min-h-[580px] lg:min-h-[660px] flex flex-col justify-center px-6 sm:px-10 lg:px-14 pt-12 pb-12">
+      {/* Top Hero Banner Area with Full Screen Visual Background (Expanded Height) */}
+      <div className="relative flex-1 min-h-[680px] sm:min-h-[720px] lg:min-h-[780px] xl:min-h-[820px] flex flex-col justify-center px-6 sm:px-10 lg:px-14 pt-16 pb-16 sm:pt-20 sm:pb-20 lg:pt-24 lg:pb-24">
         {/* Background Image Layer with smooth left/bottom blend */}
         <motion.div
           className="absolute inset-0 z-0 overflow-hidden pointer-events-none"
