@@ -71,26 +71,46 @@ export default function ProjectModal({ project, onClose, onNext, onPrev, hasNext
           {/* Scrollable Content Area */}
           <div ref={modalRef} className="flex-1 overflow-y-auto w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             
-            {/* Top Cover Image Area */}
-            <div className="w-full aspect-[16/9] md:aspect-[2.5/1] relative flex items-center justify-center bg-[#F4F0E8] dark:bg-[#0A0A0A] overflow-hidden border-b border-[#DCD6C8] dark:border-[#333333]">
-              {/* Grid Background */}
-              <div 
-                className="absolute inset-0 bg-[linear-gradient(to_right,#E2DDD2_1px,transparent_1px),linear-gradient(to_bottom,#E2DDD2_1px,transparent_1px)]"
-                style={{ backgroundSize: '40px 40px' }}
-              />
-              
-              {/* Faint Center Text */}
-              <h1 className="text-6xl sm:text-8xl md:text-[120px] font-mono font-bold text-[#E2DDD2] dark:text-[#27272A] select-none z-10 tracking-tighter">
-                PROJ-{project.number}
-              </h1>
-
-              {/* Cover Coming Soon Badge */}
-              <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-10 z-20">
-                <span className="px-3.5 py-1.5 rounded bg-[#FAF7F2] dark:bg-[#121212] border border-[#DCD6C8] dark:border-[#333333] text-[#6E6A61] dark:text-[#A1A1AA] font-mono text-[10px] sm:text-xs uppercase tracking-widest">
-                  Cover Coming Soon
-                </span>
+            {/* Top Cover / Video Player Area */}
+            {project.videoUrl ? (
+              <div className="w-full relative bg-black overflow-hidden border-b border-[#DCD6C8] dark:border-[#333333]">
+                <video
+                  src={project.videoUrl}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full max-h-[480px] object-contain mx-auto bg-black"
+                >
+                  Your browser does not support the video tag.
+                </video>
+                <div className="absolute top-4 left-4 z-20 pointer-events-none">
+                  <span className="px-3 py-1 rounded bg-[#141413]/85 backdrop-blur-md border border-white/15 text-white font-mono text-[10px] sm:text-xs uppercase tracking-widest flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#D94E28] animate-pulse" />
+                    Live Project Walkthrough
+                  </span>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="w-full aspect-[16/9] md:aspect-[2.5/1] relative flex items-center justify-center bg-[#F4F0E8] dark:bg-[#0A0A0A] overflow-hidden border-b border-[#DCD6C8] dark:border-[#333333]">
+                {/* Grid Background */}
+                <div 
+                  className="absolute inset-0 bg-[linear-gradient(to_right,#E2DDD2_1px,transparent_1px),linear-gradient(to_bottom,#E2DDD2_1px,transparent_1px)]"
+                  style={{ backgroundSize: '40px 40px' }}
+                />
+                
+                {/* Faint Center Text */}
+                <h1 className="text-6xl sm:text-8xl md:text-[120px] font-mono font-bold text-[#E2DDD2] dark:text-[#27272A] select-none z-10 tracking-tighter">
+                  PROJ-{project.number}
+                </h1>
+
+                {/* Cover Coming Soon Badge */}
+                <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-10 z-20">
+                  <span className="px-3.5 py-1.5 rounded bg-[#FAF7F2] dark:bg-[#121212] border border-[#DCD6C8] dark:border-[#333333] text-[#6E6A61] dark:text-[#A1A1AA] font-mono text-[10px] sm:text-xs uppercase tracking-widest">
+                    Cover Coming Soon
+                  </span>
+                </div>
+              </div>
+            )}
 
             <div className="w-full px-6 sm:px-10 md:px-16 lg:px-24 py-12 md:py-16 space-y-16">
               

@@ -13,6 +13,7 @@ export interface ProjectItem {
   techStack: string[];
   githubUrl?: string;
   liveUrl?: string;
+  videoUrl?: string;
   status: string;
   highlights: string[];
   architectureSummary?: string;

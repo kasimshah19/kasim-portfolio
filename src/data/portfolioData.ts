@@ -126,6 +126,7 @@ export const PROJECTS: ProjectItem[] = [
     ],
     githubUrl: 'https://github.com/kasimshah19/smart-citizen-grievance-system',
     liveUrl: 'https://smart-citizen-grievance-system.vercel.app/',
+    videoUrl: '/video/nagrik-demo.mp4',
     status: 'Completed',
     highlights: [
       '3 Dedicated Portals (Citizen, Admin, Employee)',
