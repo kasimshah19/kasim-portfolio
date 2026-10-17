@@ -2,7 +2,6 @@ import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import heroBgImage from '../assets/images/hero_workspace_robot_1787493399344.jpg';
 
 interface HeroSectionProps {
   onNavigate: (sectionId: string) => void;
@@ -13,36 +12,30 @@ export default function HeroSection({ onNavigate, isReady = true }: HeroSectionP
   return (
     <section
       id="home"
-      className="relative flex flex-col justify-between border-b border-[#E2DDD2] dark:border-[#27272A] bg-[#F4F0E8] dark:bg-[#0A0A0A] overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-between border-b border-[#E2DDD2] dark:border-[#27272A] bg-[#F4F0E8] dark:bg-[#0A0A0A] overflow-hidden"
     >
-      {/* Top Hero Banner Area with Visual Background */}
-      <div className="relative min-h-[560px] lg:min-h-[640px] flex flex-col justify-center px-6 sm:px-10 lg:px-14 pt-12 pb-12">
+      {/* Top Hero Banner Area with Full Screen Visual Background */}
+      <div className="relative flex-1 min-h-[580px] lg:min-h-[660px] flex flex-col justify-center px-6 sm:px-10 lg:px-14 pt-12 pb-12">
         {/* Background Image Layer with smooth left/bottom blend */}
         <motion.div
           className="absolute inset-0 z-0 overflow-hidden pointer-events-none"
-          initial={{ opacity: 0, scale: 1.08 }}
-          animate={{ opacity: isReady ? 1 : 0, scale: isReady ? 1.05 : 1.08 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isReady ? 1 : 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <img
-            src={heroBgImage}
-            alt="Kasim Shah developer workspace"
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-cover object-right md:object-[center_right] md:hidden"
-          />
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover object-right md:object-[center_right] hidden md:block"
+            poster="/kasim-1.png"
+            className="w-full h-full object-cover object-[65%_0%] sm:object-[68%_0%] md:object-[72%_0%] lg:object-[74%_0%]"
           >
-            <source src="/robot.mp4" type="video/mp4" />
+            <source src="/kasim-2.mp4" type="video/mp4" />
           </video>
 
-          {/* Gradients ensuring perfect readability and blending */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#F4F0E8] dark:from-[#0A0A0A] via-[#F4F0E8]/90 dark:via-[#0A0A0A]/90 sm:via-[#F4F0E8]/80 dark:sm:via-[#0A0A0A]/80 md:via-[#F4F0E8]/65 dark:md:via-[#0A0A0A]/65 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#F4F0E8] dark:from-[#0A0A0A] via-transparent to-[#F4F0E8]/20 dark:to-[#0A0A0A]/20" />
+          {/* Directional gradient ensuring text readability on the left while keeping workspace and subject clear */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#F4F0E8] dark:from-[#0A0A0A] via-[#F4F0E8]/90 dark:via-[#0A0A0A]/90 via-40% sm:via-35% md:via-[#F4F0E8]/50 dark:md:via-[#0A0A0A]/55 md:via-46% to-[#F4F0E8]/15 dark:to-[#0A0A0A]/15 md:to-transparent md:to-65%" />
         </motion.div>
 
         {/* Content Container (Matches reference image) */}
