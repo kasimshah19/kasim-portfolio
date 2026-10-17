@@ -63,15 +63,16 @@ export default function ProjectModal({ project, onClose, onNext, onPrev, hasNext
           {/* Floating Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 sm:top-6 sm:right-6 z-[110] w-10 h-10 rounded-full border border-[#DCD6C8] dark:border-[#333333] bg-[#EFEBE1] dark:bg-[#1A1A1A] flex items-center justify-center hover:bg-[#E2DDD2] dark:hover:bg-[#27272A] transition-colors shadow-sm cursor-pointer group"
+            aria-label="Close modal"
+            className="absolute top-4 right-4 sm:top-5 sm:right-5 z-[110] w-10 h-10 rounded-full border border-white/20 bg-black/75 backdrop-blur-md flex items-center justify-center text-white hover:bg-black/90 hover:scale-105 transition-all shadow-xl cursor-pointer group"
           >
-            <X className="w-5 h-5 text-[#6E6A61] dark:text-[#A1A1AA] group-hover:text-[#D94E28] dark:group-hover:text-[#FF5A2A] transition-colors" />
+            <X className="w-5 h-5 text-white/90 group-hover:text-[#D94E28] dark:group-hover:text-[#FF5A2A] transition-colors" />
           </button>
 
           {/* Scrollable Content Area */}
           <div ref={modalRef} className="flex-1 overflow-y-auto w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             
-            {/* Top Cover / Video Player Area */}
+            {/* Top Cover / Video Player Area - Full Screen Edge-to-Edge */}
             {project.videoUrl ? (
               <div className="w-full relative bg-black overflow-hidden border-b border-[#DCD6C8] dark:border-[#333333]">
                 <video
@@ -79,13 +80,13 @@ export default function ProjectModal({ project, onClose, onNext, onPrev, hasNext
                   controls
                   playsInline
                   preload="metadata"
-                  className="w-full max-h-[480px] object-contain mx-auto bg-black"
+                  className="w-full aspect-[16/9] object-cover object-top bg-black block"
                 >
                   Your browser does not support the video tag.
                 </video>
                 <div className="absolute top-4 left-4 z-20 pointer-events-none">
-                  <span className="px-3 py-1 rounded bg-[#141413]/85 backdrop-blur-md border border-white/15 text-white font-mono text-[10px] sm:text-xs uppercase tracking-widest flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#D94E28] animate-pulse" />
+                  <span className="px-3 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-white font-mono text-[10px] sm:text-xs uppercase tracking-widest flex items-center gap-2 shadow-lg">
+                    <span className="w-2 h-2 rounded-full bg-[#D94E28] dark:bg-[#FF5A2A] animate-pulse" />
                     Live Project Walkthrough
                   </span>
                 </div>
