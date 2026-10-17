@@ -16,6 +16,7 @@ export interface ProjectItem {
   status: string;
   highlights: string[];
   architectureSummary?: string;
+  solutionDesign?: string;
   keyWorkflows?: string[];
   accentColor?: string;
   domain?: string;

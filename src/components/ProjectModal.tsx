@@ -151,7 +151,7 @@ export default function ProjectModal({ project, onClose, onNext, onPrev, hasNext
                 {project.problem && (
                   <div className="space-y-4">
                     <h3 className="text-xs font-mono text-[#D94E28] dark:text-[#FF5A2A] font-bold uppercase tracking-widest">Problem</h3>
-                    <p className="text-base sm:text-lg text-[#5E5B54] dark:text-[#A1A1AA] font-normal leading-relaxed">
+                    <p className="text-base sm:text-lg text-[#5E5B54] dark:text-[#A1A1AA] font-normal leading-relaxed whitespace-pre-line">
                       {project.problem}
                     </p>
                   </div>
@@ -161,7 +161,7 @@ export default function ProjectModal({ project, onClose, onNext, onPrev, hasNext
                 {project.solution && (
                   <div className="space-y-4">
                     <h3 className="text-xs font-mono text-[#D94E28] dark:text-[#FF5A2A] font-bold uppercase tracking-widest">Approach</h3>
-                    <p className="text-base sm:text-lg text-[#5E5B54] dark:text-[#A1A1AA] leading-relaxed">
+                    <p className="text-base sm:text-lg text-[#5E5B54] dark:text-[#A1A1AA] leading-relaxed whitespace-pre-line">
                       {project.solution}
                     </p>
                     
@@ -177,11 +177,28 @@ export default function ProjectModal({ project, onClose, onNext, onPrev, hasNext
                   </div>
                 )}
 
+                {/* Business Logic & Solution Design */}
+                {project.solutionDesign && (
+                  <div className="border-t border-[#DCD6C8] dark:border-[#333333] pt-10 space-y-4">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-[#D94E28] dark:bg-[#FF5A2A]" />
+                      <h3 className="text-xs font-mono text-[#D94E28] dark:text-[#FF5A2A] font-bold uppercase tracking-widest">
+                        Business Logic &amp; Solution Design
+                      </h3>
+                    </div>
+                    <div className="p-5 sm:p-6 rounded-2xl bg-[#F3EFE7] dark:bg-[#1A1A1A] border border-[#DDD6C8] dark:border-[#2E2E2E]">
+                      <p className="text-base sm:text-lg text-[#141413] dark:text-[#E4E4E7] leading-relaxed font-normal whitespace-pre-line">
+                        {project.solutionDesign}
+                      </p>
+                    </div>
+                  </div>
+                )}
+
                 {/* Result */}
                 {project.overview && (
                   <div className="border-t border-[#DCD6C8] dark:border-[#333333] pt-10 space-y-4">
                     <h3 className="text-xs font-mono text-[#D94E28] dark:text-[#FF5A2A] font-bold uppercase tracking-widest">Result</h3>
-                    <p className="text-base sm:text-lg text-[#141413] dark:text-[#FAFAFA] font-bold leading-relaxed">
+                    <p className="text-base sm:text-lg text-[#141413] dark:text-[#FAFAFA] font-bold leading-relaxed whitespace-pre-line">
                       {project.overview}
                     </p>
                   </div>

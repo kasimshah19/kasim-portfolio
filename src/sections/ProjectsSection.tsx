@@ -88,9 +88,17 @@ export default function ProjectsSection({ onSelectProject }: ProjectsSectionProp
 
                 {/* Top preview tag */}
                 <div className="relative z-10 flex items-center justify-between">
-                  <span className="px-2.5 py-1 rounded bg-[#2C2B29]/90 dark:bg-[#D4D4D8]/90 border border-[#3E3C38] dark:border-[#D4D4D8] text-[10px] font-mono text-[#E5E0D5] dark:text-[#121212]">
-                    {project.category}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-1 rounded bg-[#2C2B29]/90 dark:bg-[#D4D4D8]/90 border border-[#3E3C38] dark:border-[#D4D4D8] text-[10px] font-mono text-[#E5E0D5] dark:text-[#121212]">
+                      {project.category}
+                    </span>
+                    {project.liveUrl && (
+                      <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-[10px] font-mono font-bold tracking-wider">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        LIVE
+                      </span>
+                    )}
+                  </div>
                   <span className="text-[10px] font-mono text-[#A39E92] dark:text-[#71717A]">
                     {project.year}
                   </span>
