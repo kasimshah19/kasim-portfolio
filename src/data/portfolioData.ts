@@ -284,7 +284,7 @@ export const PROJECTS: ProjectItem[] = [
       'Vercel & Render',
     ],
     githubUrl: 'https://github.com/kasimshah19/PayPost',
-    liveUrl: 'https://pay-post.vercel.app',
+    liveUrl: 'https://pay-post.vercel.app/',
     status: 'Completed',
     highlights: [
       'Double-Entry Bookkeeping & Integer Paise Engine',

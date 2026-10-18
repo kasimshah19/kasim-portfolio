@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { ArrowUpRight, Play, Pause } from 'lucide-react';
+import { ArrowUpRight, Play, Pause, Github } from 'lucide-react';
 import { PROJECTS, PERSONAL_INFO } from '../data/portfolioData';
 import { ProjectItem } from '../types';
 
@@ -57,23 +57,36 @@ function ProjectCard({
             {/* Subtle top & bottom shadow gradient for pill contrast */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/50 pointer-events-none" />
 
-            {/* Top Floating Bar: Live ↗ on Left, PROJ-XX on Right */}
+            {/* Top Floating Bar: Live ↗ & Code on Left, PROJ-XX on Right */}
             <div className="absolute top-3.5 sm:top-4 left-3.5 sm:left-4 right-3.5 sm:right-4 z-20 flex items-center justify-between">
-              {project.liveUrl ? (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-emerald-400 text-[11px] sm:text-xs font-mono font-bold tracking-wider hover:bg-emerald-500 hover:text-black hover:border-emerald-500 transition-all shadow-lg"
-                >
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Live
-                  <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
-                </a>
-              ) : (
-                <div />
-              )}
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-emerald-400 text-[11px] sm:text-xs font-mono font-bold tracking-wider hover:bg-emerald-500 hover:text-black hover:border-emerald-500 transition-all shadow-lg"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    Live
+                    <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-white/90 text-[11px] sm:text-xs font-mono font-medium hover:bg-white hover:text-black transition-all shadow-lg"
+                    title="View Source Code on GitHub"
+                  >
+                    <Github className="w-3.5 h-3.5" />
+                    <span>Code</span>
+                  </a>
+                )}
+              </div>
               <div className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[11px] sm:text-xs font-mono font-bold tracking-wider text-[#FAF7F2]/90 shadow-lg">
                 PROJ-{project.number}
               </div>
@@ -106,23 +119,38 @@ function ProjectCard({
 
             {/* Top Bar for non-video projects */}
             <div className="absolute top-3.5 sm:top-4 left-3.5 sm:left-4 right-3.5 sm:right-4 z-20 flex items-center justify-between">
-              {project.liveUrl ? (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#2C2B29]/90 dark:bg-[#D4D4D8]/90 border border-[#3E3C38] dark:border-[#D4D4D8] text-emerald-400 dark:text-emerald-600 text-[11px] sm:text-xs font-mono font-bold tracking-wider hover:bg-emerald-500 hover:text-black transition-all shadow-sm"
-                >
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Live
-                  <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
-                </a>
-              ) : (
-                <span className="px-3 py-1 rounded-full bg-[#2C2B29]/90 dark:bg-[#D4D4D8]/90 border border-[#3E3C38] dark:border-[#D4D4D8] text-[10px] font-mono text-[#E5E0D5] dark:text-[#121212]">
-                  {project.category}
-                </span>
-              )}
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                {project.liveUrl ? (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#2C2B29]/90 dark:bg-[#D4D4D8]/90 border border-[#3E3C38] dark:border-[#D4D4D8] text-emerald-400 dark:text-emerald-600 text-[11px] sm:text-xs font-mono font-bold tracking-wider hover:bg-emerald-500 hover:text-black transition-all shadow-sm"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    Live
+                    <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                  </a>
+                ) : (
+                  <span className="px-3 py-1 rounded-full bg-[#2C2B29]/90 dark:bg-[#D4D4D8]/90 border border-[#3E3C38] dark:border-[#D4D4D8] text-[10px] font-mono text-[#E5E0D5] dark:text-[#121212]">
+                    {project.category}
+                  </span>
+                )}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#2C2B29]/90 dark:bg-[#D4D4D8]/90 border border-[#3E3C38] dark:border-[#D4D4D8] text-[#FAF7F2] dark:text-[#121212] text-[11px] sm:text-xs font-mono font-medium hover:bg-[#FAF7F2] hover:text-[#141413] dark:hover:bg-[#121212] dark:hover:text-[#FAFAFA] transition-all shadow-sm"
+                    title="View Source Code on GitHub"
+                  >
+                    <Github className="w-3.5 h-3.5" />
+                    <span>Code</span>
+                  </a>
+                )}
+              </div>
               <div className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#2C2B29]/90 dark:bg-[#D4D4D8]/90 border border-[#3E3C38] dark:border-[#D4D4D8] text-[11px] sm:text-xs font-mono font-bold tracking-wider text-[#FAF7F2] dark:text-[#121212] shadow-sm">
                 PROJ-{project.number}
               </div>
