@@ -227,6 +227,33 @@ export default function ProjectModal({ project, onClose, onNext, onPrev, hasNext
                     </p>
                   </div>
                 )}
+
+                {/* System Workflows & Execution Pipeline */}
+                {project.keyWorkflows && project.keyWorkflows.length > 0 && (
+                  <div className="border-t border-[#DCD6C8] dark:border-[#333333] pt-10 space-y-4">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                      <h3 className="text-xs font-mono text-[#D94E28] dark:text-[#FF5A2A] font-bold uppercase tracking-widest">
+                        System Workflows &amp; Execution Pipeline
+                      </h3>
+                    </div>
+                    <div className="space-y-3">
+                      {project.keyWorkflows.map((workflow, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-start gap-3.5 p-4 rounded-xl bg-[#F3EFE7] dark:bg-[#1A1A1A] border border-[#DDD6C8] dark:border-[#2E2E2E]"
+                        >
+                          <span className="px-2.5 py-0.5 rounded bg-[#D94E28]/10 dark:bg-[#FF5A2A]/10 text-[#D94E28] dark:text-[#FF5A2A] font-mono text-xs font-bold shrink-0">
+                            0{idx + 1}
+                          </span>
+                          <p className="text-sm sm:text-base text-[#141413] dark:text-[#E4E4E7] leading-relaxed font-mono">
+                            {workflow}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
                 
                 {/* Tech Stack */}
                 {project.techStack && project.techStack.length > 0 && (
