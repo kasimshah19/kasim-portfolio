@@ -282,7 +282,7 @@ export const PROJECTS: ProjectItem[] = [
     ],
     githubUrl: 'https://github.com/kasimshah19/PayPost',
     liveUrl: 'https://pay-post.vercel.app/',
-    videoUrl: '/video/paypost-demo.mp4',
+    videoUrl: '/video/paypost-demo.mp4?v=1',
     status: 'Completed',
     highlights: [
       'Double-Entry Bookkeeping & Integer Paise Engine (Δ = 0)',
