@@ -78,6 +78,7 @@ export default function ProjectModal({ project, onClose, onNext, onPrev, hasNext
                 <div className="w-full max-w-5xl relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl bg-black border border-white/10">
                   <video
                     src={project.videoUrl}
+                    poster={project.posterUrl}
                     controls
                     playsInline
                     preload="metadata"

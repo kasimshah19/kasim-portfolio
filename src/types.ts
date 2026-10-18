@@ -14,6 +14,7 @@ export interface ProjectItem {
   githubUrl?: string;
   liveUrl?: string;
   videoUrl?: string;
+  posterUrl?: string;
   status: string;
   highlights: string[];
   architectureSummary?: string;

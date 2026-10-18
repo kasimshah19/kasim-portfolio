@@ -46,10 +46,12 @@ function ProjectCard({
             <video
               ref={videoRef}
               src={project.videoUrl}
+              poster={project.posterUrl}
               autoPlay
               loop
               muted
               playsInline
+              preload="metadata"
               className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
             />
             {/* Subtle top & bottom shadow gradient for pill contrast */}

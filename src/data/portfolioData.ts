@@ -104,6 +104,8 @@ export const PROJECTS: ProjectItem[] = [
     ],
     githubUrl: 'https://github.com/kasimshah19/Pathology-Lab',
     liveUrl: 'https://pathology-lab-xi.vercel.app/login',
+    videoUrl: '/video/pathology-lab-demo.mp4',
+    posterUrl: '/video/pathology-lab-poster.jpg',
     status: 'Completed',
     highlights: [
       '3-Tier RBAC & Dynamic Dashboard Routing',
@@ -163,6 +165,7 @@ export const PROJECTS: ProjectItem[] = [
     githubUrl: 'https://github.com/kasimshah19/smart-citizen-grievance-system',
     liveUrl: 'https://smart-citizen-grievance-system.vercel.app/',
     videoUrl: '/video/nagrik-demo.mp4',
+    posterUrl: '/video/nagrik-poster.jpg',
     status: 'Completed',
     highlights: [
       '3 Dedicated Portals (Citizen, Admin, Employee)',
@@ -221,6 +224,8 @@ export const PROJECTS: ProjectItem[] = [
     ],
     githubUrl: 'https://github.com/kasimshah19/Legend-Photography',
     liveUrl: 'https://legend-photography.onrender.com/',
+    videoUrl: '/video/legend-photography-demo.mp4?v=2',
+    posterUrl: '/video/legend-poster.jpg',
     status: 'Completed',
     highlights: [
       'Bespoke Headless CMS & Admin Dashboard',
