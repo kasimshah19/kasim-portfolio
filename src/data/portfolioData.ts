@@ -240,6 +240,66 @@ export const PROJECTS: ProjectItem[] = [
       'Studio director logs into Bespoke CMS -> Reviews lead in CRM, updates status to Booked, or publishes new albums',
     ],
   },
+  {
+    id: 'paypost-settlement-engine',
+    number: '04',
+    title: 'PayPost — Creator Deliverables & Real-Time Financial Settlement Engine',
+    tagline: 'Enterprise FinTech & UGC Escrow • Double-Entry Ledger, Multi-Doc ACID & Two-Phase UPI',
+    category: 'FULL-STACK',
+    year: '2026',
+    shortDescription:
+      "An enterprise FinTech & campaign escrow settlement infrastructure for India's creator economy—featuring multi-document ACID transactions, integer paise double-entry ledger, two-phase UPI payouts, and TRAI-compliant quiet hours.",
+    overview:
+      'PayPost is an enterprise-grade fintech and campaign settlement infrastructure designed to solve systemic trust, concurrency, and financial reconciliation challenges in creator marketing. Built with multi-document ACID transactions, an immutable double-entry ledger, two-phase asynchronous UPI disbursements, and 203 passing automated test cases with zero flaky tests.',
+    problem:
+      'The Systemic FinTech Bottleneck: Traditional influencer marketplaces and creator management platforms suffer from severe concurrency and accounting failures:\n\n• Slot Over-Allocation: High-demand campaigns invite concurrent race conditions where multiple creators accept the last available slot simultaneously, leading to overbooked budgets and broken contracts.\n• Floating-Point Financial Drift: Javascript IEEE 754 floating-point arithmetic introduces silent penny rounding errors across platform commission, 18% GST, and 1% Section 194J TDS deductions.\n• Insecure Withdrawal Races: Simultaneous cash-out requests allow creators to double-spend balances before the database updates available funds.\n• Revision Hell & Missing Audits: Disorganized chat loops cause deliverables and contract milestone approvals to fall through the cracks without verifiable audit trails.\n• Regulatory Non-Compliance: Midnight notification spam triggers telecom penalties under Indian TRAI regulations without strict time-bracket dispatch controls.',
+    solution:
+      'The Architectural Intervention: Engineered a bulletproof financial and campaign management platform built on strict transactional guarantees:\n\n1. Double-Entry Bookkeeping & Integer Math: All monetary balances are stored strictly in integer paise (1 INR = 100 paise), guaranteeing that debits and credits always equal zero across platform escrow, brand balances, and creator wallets with zero rounding drift.\n\n2. Two-Phase UPI Withdrawal Settlement: Implemented an atomic two-phase hold pattern (Available → Held → Settled/Refunded) with background worker reconciliation, eliminating double-spending risk.\n\n3. Multi-Document ACID Transactions: Leveraged MongoDB replica set sessions to execute simultaneous slot reservations, deliverable milestone approvals, and wallet payouts atomically.\n\n4. TRAI-Compliant Quiet Hours Engine: Pure UTC time arithmetic (+330 min offset to IST) defers non-critical push alerts and SMS during Indian quiet windows (21:00 to 09:00 IST).\n\n5. 203 Automated Test Cases: 100% passing test matrix including deterministic PRNG chaos tests (Mulberry32) simulating 100 concurrent race actions with zero invariant violations.',
+    solutionDesign:
+      'How I think as an Engineer: Financial software demands absolute precision and mathematical correctness:\n\n• Strict Integer Paise Representation: Prevented JavaScript floating-point errors by representing all currency amounts in integer paise (1 INR = 100 paise).\n• Double-Entry Ledger Architecture: Every movement of funds produces immutable, matched debit and credit entries, ensuring verifiable ledger balance across platform escrow, brand payments, and creator wallets.\n• Concurrency-Safe Atomic Reservations: Handled high-traffic campaign slot claims using MongoDB conditional atomic updates ($inc with boundary checks), completely eliminating race conditions.\n• Asynchronous Two-Phase Disbursement Worker: Decoupled immediate creator withdrawal requests from external banking latency using an atomic hold state and idempotent background reconciliation worker.\n• Indian Tax Compliance (TDS & GST): Engineered automated calculation pipelines deducting statutory TDS and calculating GST on platform fees dynamically upon deliverable approval.\n• 203 Passing Tests & Chaos Engineering: Validated state machine transitions, edge cases, and ledger consistency under extreme concurrent load.',
+    features: [
+      'Double-Entry Accounting Engine: Strict integer paise arithmetic ensuring ledger credits and debits always reconcile to zero.',
+      'Two-Phase UPI Withdrawals: Atomic state progression (Available → Held → Settled) preventing double-spend exploits.',
+      'Multi-Document MongoDB ACID Sessions: Atomic commits across campaign slots, submissions, and wallet credits.',
+      'Automated Statutory Tax Engine: Dynamic computation of 18% GST and 1% Section 194J TDS deductions.',
+      'TRAI Quiet Hours Compliance: Mathematical UTC+330 timezone calculation deferring midnight notifications.',
+      '203 Automated Test Suite: 15 comprehensive suites covering money flows, race conditions, and e2e lifecycles.',
+      'Seeded Concurrency Chaos Engine: Deterministic PRNG chaos test verifying ledger invariants across 100 parallel actions.',
+      'Brand Action Center & Creator Dashboard: Real-time urgency ranking and campaign performance aggregation.',
+      'Deep-Link Auto Focus & Navigation: URL param driven tab switching (?tab=submissions&focus=id) with pulse indicators.',
+      'Role-Based Access Control (RBAC): Strict separation of privileges between Brand and Creator portals.',
+    ],
+    techStack: [
+      'React 18',
+      'Node.js',
+      'Express.js',
+      'MongoDB Atlas (ACID)',
+      'Socket.IO',
+      'Tailwind CSS',
+      'Vite',
+      'Jest (203 Tests)',
+      'Double-Entry Ledger',
+      'UPI Two-Phase',
+      'JWT & RBAC',
+      'Vercel & Render',
+    ],
+    githubUrl: 'https://github.com/kasimshah19/PayPost',
+    liveUrl: 'https://pay-post.vercel.app',
+    status: 'Completed',
+    highlights: [
+      'Double-Entry Bookkeeping & Integer Paise Engine',
+      '203 Passing Automated Tests (15 Test Suites)',
+      'Two-Phase UPI Withdrawals & ACID Transactions',
+    ],
+    architectureSummary:
+      'React & Tailwind Client -> Express REST API & Socket.IO -> Multi-Doc MongoDB ACID Ledger -> Asynchronous UPI Worker & TRAI Outbox.',
+    keyWorkflows: [
+      'Brand funds campaign -> Integer paise escrow allocated -> Creators apply with Instagram profile verification',
+      'Creator submits deliverable -> Brand reviews & approves -> Multi-doc ACID transaction credits creator wallet with tax deductions',
+      'Creator requests UPI cashout -> Two-phase hold locks balance -> Background worker executes payout and clears ledger',
+      'Background notification worker respects TRAI quiet hours (21:00-09:00 IST) before dispatching alerts',
+    ],
+  },
 ];
 
 export const EXPERIENCES: ExperienceItem[] = [
